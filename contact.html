@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | AgroKisan</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+    /* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f8f9f5;
+    color: #2e3d27;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Header */
+header {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: background 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    background-color: #388e3c;
+}
+
+nav a.btn {
+    background-color: #ffffff;
+    color: #4caf50;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+nav a.btn:hover {
+    background-color: #e8f5e9;
+}
+
+/* Hero Section */
+.contact-hero {
+    text-align: center;
+    padding: 60px 20px 40px;
+    background: url('/images/farm-bg.jpg') center/cover no-repeat;
+    color: #fff;
+    background-attachment: fixed;
+}
+
+.contact-hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+}
+
+.contact-hero p {
+    font-size: 1.1rem;
+}
+
+/* Contact Content Layout */
+.contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+    gap: 30px;
+    justify-content: center;
+    background-color: #ffffff;
+}
+
+.contact-form, .contact-info {
+    flex: 1 1 400px;
+    max-width: 600px;
+}
+
+/* Contact Form */
+.contact-form h3 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #4caf50;
+    outline: none;
+}
+
+.btn-primary {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #388e3c;
+}
+
+/* Contact Info */
+.contact-info h3 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.info-card {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    gap: 15px;
+    background: #f1f8e9;
+    padding: 15px 20px;
+    border-radius: 12px;
+    transition: transform 0.3s;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+}
+
+.info-card i {
+    font-size: 1.5rem;
+    color: #4caf50;
+    margin-top: 5px;
+}
+
+/* Map Section */
+.contact-map {
+    padding: 40px 20px;
+    background-color: #f0f4c3;
+    text-align: center;
+}
+
+.contact-map h3 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.map-container {
+    border: 5px solid #cddc39;
+    border-radius: 15px;
+    overflow: hidden;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Footer */
+footer {
+    background-color: #2e7d32;
+    color: #fff;
+    padding: 40px 20px 20px;
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.footer-section {
+    flex: 1 1 250px;
+}
+
+.footer-section h4 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.footer-section p,
+.footer-section li {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+.footer-section a {
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: #c5e1a5;
+}
+
+.social-links a {
+    margin-right: 12px;
+    font-size: 1.4rem;
+    color: #fff;
+    transition: transform 0.3s;
+}
+
+.social-links a:hover {
+    transform: scale(1.2);
+    color: #aed581;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid #66bb6a;
+    padding-top: 10px;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-content {
+        flex-direction: column;
+        padding: 30px 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+</style>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/images/logo.png" alt="AgroKisan Logo">
+            <h1>AgroKisan</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/crops">Crop Info</a></li>
+                <li><a href="/market">Market Prices</a></li>
+                <li><a href="/weather">Weather</a></li>
+                <li><a href="/schemes">Schemes</a></li>
+                <li><a href="/forum">Forum</a></li>
+                <li><a href="/contact" class="active">Contact</a></li>
+                <li><a href="/login" class="btn">Login/Signup</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contact-container">
+        <section class="contact-hero">
+            <h2>We'd Love to Hear From You</h2>
+            <p>Have questions, suggestions, or need assistance? Reach out to our team.</p>
+        </section>
+
+        <div class="contact-content">
+            <section class="contact-form">
+                <h3>Send Us a Message</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject" required>
+                            <option value="" disabled selected>Select a subject</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="technical">Technical Support</option>
+                            <option value="feedback">Feedback/Suggestions</option>
+                            <option value="partnership">Partnership Opportunities</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
+            </section>
+
+            <section class="contact-info">
+                <h3>Contact Information</h3>
+                <div class="info-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Our Office</h4>
+                        <p>123 Farm Street, Agricultural District<br>New Delhi, India 110001</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>+91 98765 43210 (Helpline)<br>+91 11 2345 6789 (Office)</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>support@agrokisan.com<br>info@agrokisan.com</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>Working Hours</h4>
+                        <p>Monday - Friday: 9 AM to 6 PM<br>Saturday: 10 AM to 4 PM</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section class="contact-map">
+            <h3>Find Us on Map</h3>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.366785926225!2d77.2098653150823!3d28.62864498242285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5e2b7d7a3b%3A0x4a7a8a7a8a7a8a7a!2sAgricultural%20District%2C%20New%20Delhi!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" 
+                        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About AgroKisan</h4>
+                <p>Empowering farmers with technology and information to improve agricultural productivity and income.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/crops">Crop Info</a></li>
+                    <li><a href="/market">Market Prices</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect With Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 AgroKisan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+            
+            // In a real application, you would send this to your server
+            console.log('Form submitted:', formData);
+            
+            // Here you would typically make a fetch request to your backend
+            fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Thank you for your message! We will get back to you soon.');
+                contactForm.reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error submitting your message. Please try again.');
+            });
+        });
+    }
+    
+    // Mobile menu toggle (consistent with other pages)
+    const mobileMenuBtn = document.createElement('button');
+    mobileMenuBtn.className = 'mobile-menu-btn';
+    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+    
+    const header = document.querySelector('header');
+    if (header) {
+        header.prepend(mobileMenuBtn);
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('show');
+        });
+    }
+});
+    </script>
+</body>
+</html>

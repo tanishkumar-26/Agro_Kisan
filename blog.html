@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Kisan Blog - Latest Farming Insights</title>
+    <!-- <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/blog.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+    /* General Reset & Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Header and Navbar */
+header {
+    background: #2e7d32;
+    color: white;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1 i {
+    margin-right: 10px;
+}
+
+nav ul {
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav ul li a {
+    color: white;
+    font-weight: 500;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: "";
+    height: 2px;
+    width: 0%;
+    background: white;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%;
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    color: black;
+    min-width: 180px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: none;
+    z-index: 99;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    padding: 10px;
+    display: block;
+    color: #2e7d32;
+    font-weight: 500;
+}
+
+.dropdown-content a:hover {
+    background: #f1f1f1;
+}
+
+/* Hero Section */
+.blog-hero {
+    background: url('/images/blog-banner.jpg') center/cover no-repeat;
+    padding: 5rem 0;
+    color: white;
+    text-align: center;
+    background-color: #4caf50;
+    background-blend-mode: multiply;
+}
+
+.blog-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.blog-hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    max-width: 500px;
+    margin: auto;
+}
+
+.search-box input {
+    padding: 10px;
+    width: 80%;
+    border: none;
+    border-radius: 5px 0 0 5px;
+}
+
+.search-box button {
+    background: #2e7d32;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.search-box button:hover {
+    background: #1b5e20;
+}
+
+/* Blog Categories */
+.blog-categories {
+    background: #fff;
+    padding: 1rem 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.categories-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.category {
+    padding: 8px 16px;
+    border: 1px solid #4caf50;
+    color: #4caf50;
+    border-radius: 20px;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.category:hover,
+.category.active {
+    background: #4caf50;
+    color: white;
+}
+
+/* Featured Article */
+.featured-article {
+    background: #fff;
+    padding: 3rem 0;
+}
+
+.featured-content {
+    width: 50%;
+    float: left;
+}
+
+.featured-image {
+    width: 45%;
+    float: right;
+}
+
+.featured-badge {
+    background: #ff9800;
+    color: white;
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    border-radius: 3px;
+}
+
+.article-category {
+    color: #388e3c;
+    font-weight: bold;
+    display: block;
+    margin: 0.5rem 0;
+}
+
+.article-excerpt {
+    margin: 1rem 0;
+    color: #555;
+}
+
+.article-meta {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.author-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 0.75rem;
+}
+
+/* Blog Grid */
+.blog-grid {
+    background: #f5f5f5;
+    padding: 3rem 0;
+}
+
+.blog-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+}
+
+.articles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.category-tag {
+    background: #81c784;
+    color: white;
+    padding: 3px 10px;
+    font-size: 0.75rem;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 20px;
+}
+
+.card-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-content {
+    padding: 1rem;
+}
+
+.read-more {
+    display: inline-block;
+    margin: 1rem;
+    color: #388e3c;
+    font-weight: bold;
+}
+
+.read-more:hover {
+    color: #2e7d32;
+}
+
+/* Pagination */
+.pagination {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.page-link {
+    padding: 8px 14px;
+    margin: 0 5px;
+    border: 1px solid #4caf50;
+    color: #4caf50;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.page-link:hover,
+.page-link.active {
+    background: #4caf50;
+    color: white;
+}
+
+/* Newsletter */
+.newsletter {
+    background: #388e3c;
+    color: white;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.newsletter-form input {
+    padding: 10px;
+    width: 300px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+}
+
+.newsletter-form button {
+    padding: 10px 20px;
+    background: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.privacy-note {
+    font-size: 0.85rem;
+    margin-top: 1rem;
+}
+
+/* Popular Topics */
+.popular-topics {
+    padding: 3rem 0;
+    background: white;
+}
+
+.topics-container {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.topic-card {
+    width: 200px;
+    background: #f1f1f1;
+    text-align: center;
+    border-radius: 10px;
+    padding: 1rem;
+    transition: 0.3s ease;
+}
+
+.topic-card:hover {
+    background: #dcedc8;
+}
+
+/* Footer */
+footer {
+    background: #2e7d32;
+    color: white;
+    padding: 3rem 0;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2rem;
+}
+
+.footer-col h3 {
+    margin-bottom: 1rem;
+}
+
+.footer-col p,
+.footer-col li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-col li a {
+    color: white;
+}
+
+.footer-col li a:hover {
+    text-decoration: underline;
+}
+
+.social-icons a {
+    color: white;
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+footer .copyright {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .featured-content, .featured-image {
+        float: none;
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: block;
+        font-size: 1.5rem;
+    }
+}
+
+</style>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-leaf"></i> Agro Kisan</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/services">Services</a></li>
+                    <li class="dropdown">
+                        <a href="#">Features <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="/crops">Crop Information</a>
+                            <a href="/market">Market Prices</a>
+                            <a href="/weather">Weather</a>
+                        </div>
+                    </li>
+                    <li><a href="/blog" class="active">Blog</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Blog Hero Section -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1>Agro Kisan Blog</h1>
+            <p>Latest insights, tips and innovations in agriculture</p>
+            <div class="search-box">
+                <input type="text" placeholder="Search articles...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Categories -->
+    <section class="blog-categories">
+        <div class="container">
+            <div class="categories-container">
+                <a href="#" class="category active">All Articles</a>
+                <a href="#" class="category">Farming Techniques</a>
+                <a href="#" class="category">Crop Management</a>
+                <a href="#" class="category">Market Trends</a>
+                <a href="#" class="category">Technology</a>
+                <a href="#" class="category">Sustainability</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Article -->
+    <section class="featured-article">
+        <div class="container">
+            <div class="featured-content">
+                <span class="featured-badge">Featured</span>
+                <span class="article-category">Farming Techniques</span>
+                <h2>Revolutionizing Small-Scale Farming with Smart Irrigation</h2>
+                <p class="article-excerpt">Discover how affordable smart irrigation systems are helping small farmers increase yields while conserving water resources in drought-prone regions...</p>
+                <div class="article-meta">
+                    <img src="/images/author1.jpg" alt="Author" class="author-img">
+                    <div class="meta-text">
+                        <span class="author-name">Dr. Priya Sharma</span>
+                        <span class="article-date">May 15, 2023 • 8 min read</span>
+                    </div>
+                </div>
+                <a href="/blog/smart-irrigation" class="btn primary">Read Article</a>
+            </div>
+            <div class="featured-image">
+                <img src="/images/featured-article.jpg" alt="Featured Article">
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Articles Grid -->
+    <section class="blog-grid">
+        <div class="container">
+            <h2 class="section-title">Latest Articles</h2>
+            
+            <div class="articles-container">
+                <!-- Article 1 -->
+                <article class="blog-card">
+                    <div class="card-image">
+                        <img src="/images/article1.jpg" alt="Organic Farming">
+                        <span class="category-tag">Sustainability</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>The Complete Guide to Transitioning to Organic Farming</h3>
+                        <p class="excerpt">Learn the step-by-step process of converting your conventional farm to organic certification, including soil preparation, pest management...</p>
+                        <div class="meta">
+                            <img src="/images/author2.jpg" alt="Author" class="author-img">
+                            <div class="meta-text">
+                                <span class="author">Rajesh Kumar</span>
+                                <span class="date">May 10, 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/blog/organic-farming-guide" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </article>
+                
+                <!-- Article 2 -->
+                <article class="blog-card">
+                    <div class="card-image">
+                        <img src="/images/article2.jpg" alt="Market Trends">
+                        <span class="category-tag">Market Trends</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>2023 Agricultural Commodity Price Forecast</h3>
+                        <p class="excerpt">Our market analysts predict which crops will see price surges and which might face declines based on global demand and climate factors...</p>
+                        <div class="meta">
+                            <img src="/images/author3.jpg" alt="Author" class="author-img">
+                            <div class="meta-text">
+                                <span class="author">Neha Gupta</span>
+                                <span class="date">May 5, 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/blog/price-forecast-2023" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </article>
+                
+                <!-- Article 3 -->
+                <article class="blog-card">
+                    <div class="card-image">
+                        <img src="/images/article3.jpg" alt="Drone Technology">
+                        <span class="category-tag">Technology</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>How Drones Are Transforming Crop Monitoring</h3>
+                        <p class="excerpt">Affordable drone technology is enabling farmers to detect pests, assess crop health, and optimize irrigation with unprecedented precision...</p>
+                        <div class="meta">
+                            <img src="/images/author4.jpg" alt="Author" class="author-img">
+                            <div class="meta-text">
+                                <span class="author">Amit Singh</span>
+                                <span class="date">April 28, 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/blog/drone-technology" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </article>
+                
+                <!-- Article 4 -->
+                <article class="blog-card">
+                    <div class="card-image">
+                        <img src="/images/article4.jpg" alt="Soil Health">
+                        <span class="category-tag">Crop Management</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>5 Signs Your Soil Needs Attention</h3>
+                        <p class="excerpt">Learn to recognize the warning signs of deteriorating soil health and practical solutions to restore fertility and microbial activity...</p>
+                        <div class="meta">
+                            <img src="/images/author1.jpg" alt="Author" class="author-img">
+                            <div class="meta-text">
+                                <span class="author">Dr. Priya Sharma</span>
+                                <span class="date">April 22, 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/blog/soil-health-signs" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </article>
+                
+                <!-- Article 5 -->
+                <article class="blog-card">
+                    <div class="card-image">
+                        <img src="/images/article5.jpg" alt="Climate Change">
+                        <span class="category-tag">Sustainability</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Adapting to Climate Change: Resilient Crop Varieties</h3>
+                        <p class="excerpt">Discover drought-resistant and heat-tolerant crop varieties that can help secure your harvests in changing climate conditions...</p>
+                        <div class="meta">
+                            <img src="/images/author2.jpg" alt="Author" class="author-img">
+                            <div class="meta-text">
+                                <span class="author">Rajesh Kumar</span>
+                                <span class="date">April 15, 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/blog/climate-resilient-crops" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </article>
+                
+                <!-- Article 6 -->
+                <article class="blog-card">
+                    <div class="card-image">
+                        <img src="/images/article6.jpg" alt="Farm Economics">
+                        <span class="category-tag">Market Trends</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>The Economics of Small Farm Diversification</h3>
+                        <p class="excerpt">How adding just one additional crop or livestock component can significantly improve your farm's profitability and risk management...</p>
+                        <div class="meta">
+                            <img src="/images/author3.jpg" alt="Author" class="author-img">
+                            <div class="meta-text">
+                                <span class="author">Neha Gupta</span>
+                                <span class="date">April 8, 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/blog/farm-diversification" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </article>
+            </div>
+            
+            <div class="pagination">
+                <a href="#" class="page-link active">1</a>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+                <a href="#" class="page-link next">Next <i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay Updated with Agro Kisan</h2>
+                <p>Subscribe to our newsletter for the latest farming insights, tips, and exclusive content</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn primary">Subscribe</button>
+                </form>
+                <p class="privacy-note">We respect your privacy. Unsubscribe at any time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Topics -->
+    <section class="popular-topics">
+        <div class="container">
+            <h2 class="section-title">Popular Topics</h2>
+            <div class="topics-container">
+                <a href="#" class="topic-card">
+                    <img src="/images/topic1.jpg" alt="Organic Farming">
+                    <h3>Organic Farming</h3>
+                    <p>12 Articles</p>
+                </a>
+                <a href="#" class="topic-card">
+                    <img src="/images/topic2.jpg" alt="Precision Agriculture">
+                    <h3>Precision Agriculture</h3>
+                    <p>8 Articles</p>
+                </a>
+                <a href="#" class="topic-card">
+                    <img src="/images/topic3.jpg" alt="Water Conservation">
+                    <h3>Water Conservation</h3>
+                    <p>15 Articles</p>
+                </a>
+                <a href="#" class="topic-card">
+                    <img src="/images/topic4.jpg" alt="Farm Business">
+                    <h3>Farm Business</h3>
+                    <p>10 Articles</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Agro Kisan</h3>
+                    <p>Helping farmers with technology-driven agricultural solutions since 2020.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Features</h3>
+                    <ul>
+                        <li><a href="/crops">Crop Information</a></li>
+                        <li><a href="/market">Market Prices</a></li>
+                        <li><a href="/weather">Weather</a></li>
+                        <li><a href="#">Farming Tips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Farm Street, Meerut City, IN 250002</p>
+                    <p><i class="fas fa-phone"></i> +91 98XXXXXXXX</p>
+                    <p><i class="fas fa-envelope"></i> info@agrokisan.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Agro Kisan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Mobile Menu Toggle
+document.querySelector('.mobile-menu').addEventListener('click', function() {
+    document.querySelector('nav').classList.toggle('active');
+});
+
+// Category Navigation
+const categories = document.querySelectorAll('.category');
+categories.forEach(category => {
+    category.addEventListener('click', function(e) {
+        e.preventDefault();
+        categories.forEach(c => c.classList.remove('active'));
+        this.classList.add('active');
+        
+        // In a real implementation, you would filter articles here
+        console.log(`Filtering by: ${this.textContent}`);
+    });
+});
+
+// Search Functionality
+const searchBox = document.querySelector('.search-box input');
+const searchButton = document.querySelector('.search-box button');
+
+searchButton.addEventListener('click', function() {
+    performSearch();
+});
+
+searchBox.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        performSearch();
+    }
+});
+
+function performSearch() {
+    const query = searchBox.value.trim();
+    if (query) {
+        console.log(`Searching for: ${query}`);
+        // In a real implementation, you would make an API call or filter articles
+    }
+}
+
+// Newsletter Form Submission
+const newsletterForm = document.querySelector('.newsletter-form');
+newsletterForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const email = this.querySelector('input').value;
+    console.log(`Subscribed email: ${email}`);
+    
+    // Show success message
+    alert('Thank you for subscribing to our newsletter!');
+    this.reset();
+});
+
+// Pagination
+const pageLinks = document.querySelectorAll('.page-link:not(.next)');
+pageLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        pageLinks.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+        console.log(`Navigating to page: ${this.textContent}`);
+    });
+});
+
+// Article Card Hover Effects
+const blogCards = document.querySelectorAll('.blog-card');
+blogCards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+        this.querySelector('.read-more').style.backgroundColor = '#4CAF50';
+        this.querySelector('.read-more').style.color = 'white';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+        this.querySelector('.read-more').style.backgroundColor = '#f4f4f4';
+        this.querySelector('.read-more').style.color = '#4CAF50';
+    });
+});
+
+// In a real implementation, you would add:
+// - API calls to fetch blog articles
+// - Search functionality with backend integration
+// - Category filtering
+// - Pagination loading
+    </script>
+    <!-- <script src="/js/script.js"></script>
+    <script src="/js/blog.js"></script> -->
+</body>
+</html>

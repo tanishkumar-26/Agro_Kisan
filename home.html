@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Kisan - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-leaf"></i> Agro Kisan</h1>
+            <nav>
+                <ul>
+                    <li><a href="/" class="active">Home</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/services">Services</a></li>
+                    <li class="dropdown">
+                        <a href="#">Features <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="/crops">Crop Information</a>
+                            <a href="/market">Market Prices</a>
+                            <a href="/weather">Weather</a>
+                        </div>
+                    </li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <h2>Empowering Farmers with Technology</h2>
+            <p>Get real-time crop information, market prices, and weather updates to make informed farming decisions.</p>
+            <div class="cta-buttons">
+                <a href="/crops" class="btn primary">Crop Info</a>
+                <a href="/market" class="btn secondary">Market Prices</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+        <div class="container">
+            <h2>Our Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Crop Information</h3>
+                    <p>Detailed guides on various crops including planting techniques, care, and harvesting.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-rupee-sign"></i>
+                    <h3>Market Prices</h3>
+                    <p>Real-time market prices for agricultural commodities across major markets.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-cloud-sun"></i>
+                    <h3>Weather Forecast</h3>
+                    <p>Accurate weather predictions to help plan your farming activities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Crop Information Preview -->
+    <section id="crop-preview">
+        <div class="container">
+            <h2>Popular Crops</h2>
+            <div class="crops-grid" id="popular-crops">
+                <!-- Dynamically loaded from API -->
+
+            </div>
+            <a href="/crops" class="btn primary">View All Crops</a>
+        </div>
+    </section>
+
+    <!-- Market Prices Preview -->
+    <section id="market-preview">
+        <div class="container">
+            <h2>Today's Market Prices (₹/Quintal)</h2>
+            <div class="market-table">
+                <table id="market-data">
+                    <thead>
+                        <tr>
+                            <th>Commodity</th>
+                            <th>Min Price</th>
+                            <th>Max Price</th>
+                            <th>Market</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dynamically loaded from API -->
+                    </tbody>
+                </table>
+            </div>
+            <a href="/market" class="btn primary">View Full Market Data</a>
+        </div>
+    </section>
+
+    <!-- Weather Preview -->
+    <section id="weather-preview">
+        <div class="container">
+            <h2>Weather Forecast</h2>
+            <div class="weather-cards" id="weather-data">
+                <!-- Dynamically loaded from API -->
+            </div>
+            <div class="location-input">
+                <input type="text" id="location" placeholder="Enter your location">
+                <button id="get-weather" class="btn primary">Get Weather</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Agro Kisan</h3>
+                    <p>Helping farmers with technology-driven agricultural solutions since 2020.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Features</h3>
+                    <ul>
+                        <li><a href="/crops">Crop Information</a></li>
+                        <li><a href="/market">Market Prices</a></li>
+                        <li><a href="/weather">Weather</a></li>
+                        <li><a href="#">Farming Tips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Farm Street, Meerut City, IN 250002</p>
+                    <p><i class="fas fa-phone"></i> +91 98XXXXXXXX</p>
+                    <p><i class="fas fa-envelope"></i> info@agrokisan.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Agro Kisan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

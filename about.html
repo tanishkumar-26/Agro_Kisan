@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Agro Kisan</title>
+    
+   <!-- <link rel="stylesheet" href="about.css">  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+</head>
+<style>
+    /* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+}
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Header & Navbar */
+header {
+    background: #2e7d32;
+    color: #fff;
+    padding: 20px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+header h1 {
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    gap: 10px;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 14px;
+    transition: background 0.3s, color 0.3s;
+}
+nav a:hover, nav a.active {
+    background: #1b5e20;
+    border-radius: 5px;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #2e7d32;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    color: white;
+}
+.dropdown-content a:hover {
+    background: #1b5e20;
+}
+
+/* Hero Section */
+.about-hero {
+    background: url('/images/about-hero.jpg') center/cover no-repeat;
+    padding: 100px 0;
+    color: #fff;
+    text-align: center;
+    background-blend-mode: overlay;
+    background-color: rgba(0, 100, 0, 0.5);
+}
+.about-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+.about-hero p {
+    font-size: 1.2rem;
+}
+
+/* Story Section */
+.our-story {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 60px 0;
+    gap: 40px;
+    align-items: center;
+}
+.story-content {
+    flex: 1;
+}
+.story-image {
+    flex: 1;
+}
+.story-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+/* Mission and Vision */
+.mission-vision {
+    background: #e8f5e9;
+    padding: 60px 0;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+.mission, .vision {
+    width: 45%;
+}
+.mission i, .vision i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #2e7d32;
+}
+
+/* Team Section */
+.our-team {
+    padding: 60px 0;
+    background: #fff;
+}
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+.team-member {
+    background: #f1f8e9;
+    padding: 20px;
+    text-align: center;
+    border-radius: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.team-member img {
+    width: 100%;
+    border-radius: 50%;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+.team-member .social-links a {
+    margin: 0 5px;
+    color: #2e7d32;
+    transition: color 0.3s;
+}
+.team-member .social-links a:hover {
+    color: #1b5e20;
+}
+
+/* Achievements */
+.achievements {
+    padding: 60px 0;
+    background: #e0f2f1;
+}
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+.stat-item {
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 15px;
+    transition: transform 0.3s;
+}
+.stat-item:hover {
+    transform: scale(1.05);
+}
+.stat-item i {
+    font-size: 2rem;
+    color: #00796b;
+    margin-bottom: 10px;
+}
+
+/* Testimonials */
+.testimonials {
+    padding: 60px 0;
+    background: #fce4ec;
+    text-align: center;
+}
+.testimonial-slider {
+    position: relative;
+}
+.testimonial {
+    display: none;
+    max-width: 600px;
+    margin: auto;
+}
+.testimonial.active {
+    display: block;
+}
+.testimonial p {
+    font-style: italic;
+}
+.author img {
+    width: 60px;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+.slider-controls {
+    margin-top: 20px;
+}
+.slider-controls button {
+    background: #ec407a;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: background 0.3s;
+}
+.slider-controls button:hover {
+    background: #c2185b;
+}
+
+/* CTA Section */
+.cta-about {
+    background: #2e7d32;
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+}
+.cta-about h2 {
+    margin-bottom: 10px;
+}
+.cta-buttons a {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+.btn.primary {
+    background: #fff;
+    color: #2e7d32;
+}
+.btn.primary:hover {
+    background: #c8e6c9;
+}
+.btn.secondary {
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+}
+.btn.secondary:hover {
+    background: #66bb6a;
+    color: #fff;
+}
+
+/* Footer */
+footer {
+    background: #1b5e20;
+    color: #fff;
+    padding: 40px 0 20px;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+.footer-col h3 {
+    margin-bottom: 15px;
+}
+.footer-col ul {
+    list-style: none;
+}
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+.footer-col a {
+    color: #c8e6c9;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.footer-col a:hover {
+    color: #fff;
+}
+.social-icons a {
+    margin-right: 10px;
+    color: #fff;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+.social-icons a:hover {
+    color: #c8e6c9;
+}
+
+</style>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-leaf"></i> Agro Kisan</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about" class="active">About Us</a></li>
+                    <li><a href="/services">Services</a></li>
+                    <li class="dropdown">
+                        <a href="#">Features <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="/crops">Crop Information</a>
+                            <a href="/market">Market Prices</a>
+                            <a href="/weather">Weather</a>
+                        </div>
+                    </li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>About Agro Kisan</h1>
+            <p>Empowering farmers with technology-driven agricultural solutions</p>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="our-story">
+        <div class="container">
+            <div class="story-content">
+                <h2>Our Story</h2>
+                <p>Agro Kisan was founded in 2020 with a simple mission: to bridge the gap between traditional farming and modern technology. What started as a small initiative to help local farmers in Karnataka has now grown into a nationwide platform serving thousands of farmers across India.</p>
+                <p>Our journey began when our founder, Rajesh Patel, noticed his family struggling with unpredictable crop yields due to lack of access to real-time market prices and weather information. This inspired him to create a solution that would empower farmers with the knowledge they need to make informed decisions.</p>
+            </div>
+            <div class="story-image">
+                <img src="/images/about-story.jpg" alt="Our Story">
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission and Vision -->
+    <section class="mission-vision">
+        <div class="container">
+            <div class="mission">
+                <i class="fas fa-bullseye"></i>
+                <h3>Our Mission</h3>
+                <p>To provide farmers with accurate, timely information and tools that enhance productivity, reduce risks, and increase profitability in agriculture.</p>
+            </div>
+            <div class="vision">
+                <i class="fas fa-eye"></i>
+                <h3>Our Vision</h3>
+                <p>To become India's most trusted agricultural platform, transforming farming practices through innovation and technology.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="our-team">
+        <div class="container">
+            <h2>Meet Our Team</h2>
+            <p class="team-subtitle">The passionate individuals behind Agro Kisan</p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="/images/team1.jpg" alt="Rajesh Patel">
+                    <h3>Rajesh Patel</h3>
+                    <p class="position">Founder & CEO</p>
+                    <p class="bio">Agricultural engineer with 15 years of farming experience</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <img src="/images/team2.jpg" alt="Priya Sharma">
+                    <h3>Priya Sharma</h3>
+                    <p class="position">Chief Agronomist</p>
+                    <p class="bio">PhD in Agriculture with specialization in crop science</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <img src="/images/team3.jpg" alt="Amit Kumar">
+                    <h3>Amit Kumar</h3>
+                    <p class="position">Technology Lead</p>
+                    <p class="bio">Software engineer passionate about agricultural tech</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <img src="/images/team4.jpg" alt="Neha Gupta">
+                    <h3>Neha Gupta</h3>
+                    <p class="position">Market Analyst</p>
+                    <p class="bio">Expert in agricultural economics and market trends</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements -->
+    <section class="achievements">
+        <div class="container">
+            <h2>Our Achievements</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <i class="fas fa-users"></i>
+                    <h3>50,000+</h3>
+                    <p>Farmers Empowered</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>15+</h3>
+                    <p>States Covered</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-seedling"></i>
+                    <h3>100+</h3>
+                    <p>Crop Varieties</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-rupee-sign"></i>
+                    <h3>30%</h3>
+                    <p>Average Income Increase</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Farmers Say</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial active">
+                    <p>"Agro Kisan helped me understand the best time to sell my produce. I increased my profits by 40% last season!"</p>
+                    <div class="author">
+                        <img src="/images/farmer1.jpg" alt="Vijay Reddy">
+                        <h4>Vijay Reddy</h4>
+                        <p>Cotton Farmer, Maharashtra</p>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p>"The weather alerts saved my tomato crop from unexpected rains. This service is a godsend for small farmers like me."</p>
+                    <div class="author">
+                        <img src="/images/farmer2.jpg" alt="Sunita Devi">
+                        <h4>Sunita Devi</h4>
+                        <p>Vegetable Farmer, Bihar</p>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p>"The crop information is so detailed and easy to understand. My wheat yield has improved significantly since I started following Agro Kisan's advice."</p>
+                    <div class="author">
+                        <img src="/images/farmer3.jpg" alt="Ramesh Patel">
+                        <h4>Ramesh Patel</h4>
+                        <p>Wheat Farmer, Punjab</p>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <button class="prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-about">
+        <div class="container">
+            <h2>Ready to Transform Your Farming?</h2>
+            <p>Join thousands of farmers who are already benefiting from Agro Kisan's services</p>
+            <div class="cta-buttons">
+                <a href="/contact" class="btn primary">Contact Us</a>
+                <a href="/services" class="btn secondary">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Agro Kisan</h3>
+                    <p>Helping farmers with technology-driven agricultural solutions since 2020.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Features</h3>
+                    <ul>
+                        <li><a href="/crops">Crop Information</a></li>
+                        <li><a href="/market">Market Prices</a></li>
+                        <li><a href="/weather">Weather</a></li>
+                        <li><a href="#">Farming Tips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Farm Street, Meerut City, IN 250002</p>
+                    <p><i class="fas fa-phone"></i> +91 98XXXXXXXX</p>
+                    <p><i class="fas fa-envelope"></i> info@agrokisan.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Agro Kisan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Agro Kisan</title>
+    <!-- <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/services.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<style>/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+    background-color: #f7f9fc;
+    line-height: 1.6;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+ul {
+    list-style: none;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Header */
+header {
+    background: #3a8f3a;
+    color: #fff;
+    padding: 1rem 0;
+}
+header h1 {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    gap: 0.5rem;
+}
+header nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+header nav ul li a {
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+header nav ul li a:hover,
+header nav ul li a.active {
+    background: #2f732f;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: #4caf50;
+    margin-top: 0.5rem;
+    border-radius: 4px;
+    z-index: 1000;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown-content a {
+    color: #fff;
+    padding: 0.5rem 1rem;
+    display: block;
+}
+.dropdown-content a:hover {
+    background: #388e3c;
+}
+
+/* Hero Section */
+.services-hero {
+    background: url('/images/farm-bg.jpg') center/cover no-repeat;
+    color: #fff;
+    text-align: center;
+    padding: 4rem 1rem;
+    background-color: #3a8f3a;
+}
+.services-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+.services-hero p {
+    font-size: 1.2rem;
+}
+
+/* Main Services */
+.main-services {
+    padding: 4rem 0;
+}
+.main-services h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2e7d32;
+    margin-bottom: 1rem;
+}
+.main-services .subtitle {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+    color: #555;
+}
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+.service-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+.service-icon {
+    font-size: 2.5rem;
+    color: #3a8f3a;
+    margin-bottom: 1rem;
+}
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+.service-card p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+.service-features li {
+    margin-bottom: 0.5rem;
+    color: #444;
+}
+.service-features li i {
+    color: #4caf50;
+    margin-right: 0.5rem;
+}
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+.btn.primary {
+    background: #3a8f3a;
+    color: white;
+}
+.btn.primary:hover {
+    background: #2e7d32;
+}
+.btn.secondary {
+    background: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #2e7d32;
+}
+.btn.secondary:hover {
+    background: #c8e6c9;
+}
+
+/* Detailed Services */
+.detailed-service {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+    padding: 4rem 0;
+}
+.detailed-service.alt {
+    flex-direction: row-reverse;
+    background-color: #f1f8e9;
+}
+.detailed-service .service-content {
+    flex: 1;
+}
+.detailed-service .service-image img {
+    max-width: 100%;
+    border-radius: 12px;
+}
+.steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.step {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.step-number {
+    background: #4caf50;
+    color: white;
+    font-weight: bold;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    border-radius: 50%;
+    line-height: 32px;
+}
+
+/* Pricing */
+.pricing {
+    padding: 4rem 0;
+    background: #f9fbe7;
+    text-align: center;
+}
+.pricing h2 {
+    font-size: 2.5rem;
+    color: #2e7d32;
+}
+.pricing .plans {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+.plan-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+.plan-card:hover {
+    transform: translateY(-5px);
+}
+.plan-card.popular {
+    border: 2px solid #4caf50;
+    position: relative;
+}
+.popular-badge {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #4caf50;
+    color: white;
+    padding: 0.2rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+.price {
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+.price span {
+    font-size: 1rem;
+    color: #777;
+}
+.plan-features {
+    text-align: left;
+}
+.plan-features li {
+    margin-bottom: 0.5rem;
+}
+.plan-features i.fa-times {
+    color: #ccc;
+}
+
+/* FAQs */
+.faqs {
+    padding: 4rem 0;
+}
+.faq-container {
+    max-width: 800px;
+    margin: auto;
+}
+.faq-item {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
+}
+.faq-question {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    width: 100%;
+    text-align: left;
+    padding: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.faq-answer {
+    display: none;
+    padding: 0 1rem 1rem 1rem;
+}
+.faq-question.active + .faq-answer {
+    display: block;
+}
+
+/* CTA */
+.service-cta {
+    background: #388e3c;
+    color: white;
+    text-align: center;
+    padding: 4rem 1rem;
+}
+.service-cta .btn.secondary {
+    background: white;
+    color: #388e3c;
+}
+
+/* Footer */
+footer {
+    background: #2e7d32;
+    color: white;
+    padding: 3rem 0 2rem;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+.footer-col h3 {
+    margin-bottom: 1rem;
+}
+.footer-col ul li {
+    margin-bottom: 0.5rem;
+}
+.footer-col ul li a {
+    color: white;
+    transition: color 0.3s ease;
+}
+.footer-col ul li a:hover {
+    color: #c8e6c9;
+}
+.social-icons a {
+    margin-right: 0.5rem;
+    color: white;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+.social-icons a:hover {
+    transform: scale(1.2);
+}
+footer .copyright {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #d0e7d0;
+}
+</style>
+
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-leaf"></i> Agro Kisan</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/services" class="active">Services</a></li>
+                    <li class="dropdown">
+                        <a href="#">Features <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="/crops">Crop Information</a>
+                            <a href="/market">Market Prices</a>
+                            <a href="/weather">Weather</a>
+                        </div>
+                    </li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Hero Section -->
+    <section class="services-hero">
+        <div class="container">
+            <h1>Our Agricultural Services</h1>
+            <p>Comprehensive solutions to enhance your farming productivity and profitability</p>
+        </div>
+    </section>
+
+    <!-- Main Services Section -->
+    <section class="main-services">
+        <div class="container">
+            <h2>Core Services</h2>
+            <p class="subtitle">We offer a range of services designed to empower farmers at every stage of cultivation</p>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Crop Advisory</h3>
+                    <p>Personalized crop recommendations based on soil type, climate, and market demand with optimal planting schedules.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Crop selection guidance</li>
+                        <li><i class="fas fa-check"></i> Planting calendar</li>
+                        <li><i class="fas fa-check"></i> Soil preparation tips</li>
+                    </ul>
+                    <a href="#crop-advisory" class="btn secondary">Learn More</a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <h3>Market Intelligence</h3>
+                    <p>Real-time price tracking and market trends analysis to help you get the best value for your produce.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Daily price updates</li>
+                        <li><i class="fas fa-check"></i> Market demand analysis</li>
+                        <li><i class="fas fa-check"></i> Best time to sell</li>
+                    </ul>
+                    <a href="#market-intel" class="btn secondary">Learn More</a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud-sun"></i>
+                    </div>
+                    <h3>Weather Alerts</h3>
+                    <p>Hyper-local weather forecasts and alerts to protect your crops from unexpected climate conditions.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> 7-day forecasts</li>
+                        <li><i class="fas fa-check"></i> Severe weather warnings</li>
+                        <li><i class="fas fa-check"></i> Irrigation advice</li>
+                    </ul>
+                    <a href="#weather-alerts" class="btn secondary">Learn More</a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <h3>Pest Management</h3>
+                    <p>Identification and organic solutions for common pests and diseases affecting your crops.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Pest identification</li>
+                        <li><i class="fas fa-check"></i> Organic treatment plans</li>
+                        <li><i class="fas fa-check"></i> Prevention strategies</li>
+                    </ul>
+                    <a href="#pest-mgmt" class="btn secondary">Learn More</a>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3>Irrigation Planning</h3>
+                    <p>Smart water management solutions tailored to your crops and local weather conditions.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Water requirement analysis</li>
+                        <li><i class="fas fa-check"></i> Irrigation scheduling</li>
+                        <li><i class="fas fa-check"></i> Drought solutions</li>
+                    </ul>
+                    <a href="#irrigation" class="btn secondary">Learn More</a>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Farm Analytics</h3>
+                    <p>Data-driven insights to optimize your farm operations and increase yield potential.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Yield prediction</li>
+                        <li><i class="fas fa-check"></i> Cost analysis</li>
+                        <li><i class="fas fa-check"></i> Performance tracking</li>
+                    </ul>
+                    <a href="#farm-analytics" class="btn secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Services Sections -->
+    <section class="detailed-service" id="crop-advisory">
+        <div class="container">
+            <div class="service-content">
+                <h2>Crop Advisory Service</h2>
+                <p>Our crop advisory service provides farmers with science-backed recommendations for selecting and growing crops that are best suited to their specific conditions. We analyze multiple factors to give you the most profitable and sustainable options.</p>
+                
+                <div class="service-benefits">
+                    <h3>Key Benefits:</h3>
+                    <ul>
+                        <li><strong>Increased yields:</strong> Choose crops that perform best in your soil and climate</li>
+                        <li><strong>Reduced risk:</strong> Avoid crops vulnerable to local pests and diseases</li>
+                        <li><strong>Market alignment:</strong> Grow what's in demand for better prices</li>
+                        <li><strong>Seasonal planning:</strong> Optimize your crop rotation schedule</li>
+                    </ul>
+                </div>
+                
+                <div class="how-it-works">
+                    <h3>How It Works:</h3>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <p>Submit your farm details (location, soil type, water availability)</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <p>Our experts analyze your data along with current market trends</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <p>Receive personalized crop recommendations with detailed cultivation plans</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="service-image">
+                <img src="/images/service-crop.jpg" alt="Crop Advisory Service">
+            </div>
+        </div>
+    </section>
+
+    <section class="detailed-service alt" id="market-intel">
+        <div class="container">
+            <div class="service-image">
+                <img src="/images/service-market.jpg" alt="Market Intelligence Service">
+            </div>
+            <div class="service-content">
+                <h2>Market Intelligence</h2>
+                <p>Our market intelligence service collects and analyzes agricultural commodity prices from major markets across India, giving you the information you need to make smart selling decisions.</p>
+                
+                <div class="service-benefits">
+                    <h3>Key Benefits:</h3>
+                    <ul>
+                        <li><strong>Better prices:</strong> Know when and where to sell for maximum profit</li>
+                        <li><strong>Demand forecasting:</strong> Anticipate market trends before they happen</li>
+                        <li><strong>Competitive edge:</strong> Understand price patterns across different markets</li>
+                        <li><strong>Historical data:</strong> Compare current prices with previous years</li>
+                    </ul>
+                </div>
+                
+                <div class="service-features-box">
+                    <h3>Service Features:</h3>
+                    <div class="features-grid">
+                        <div class="feature">
+                            <i class="fas fa-mobile-alt"></i>
+                            <p>Daily SMS price alerts</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <p>Regional price comparisons</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-calendar-alt"></i>
+                            <p>Seasonal price trends</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-chart-pie"></i>
+                            <p>Market demand analysis</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Plans -->
+    <section class="pricing">
+        <div class="container">
+            <h2>Service Plans</h2>
+            <p class="subtitle">Choose the plan that fits your farming needs</p>
+            
+            <div class="plans">
+                <div class="plan-card">
+                    <h3>Basic</h3>
+                    <div class="price">₹499<span>/month</span></div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Crop advisory</li>
+                        <li><i class="fas fa-check"></i> Basic weather alerts</li>
+                        <li><i class="fas fa-check"></i> Weekly market updates</li>
+                        <li><i class="fas fa-times"></i> Pest management</li>
+                        <li><i class="fas fa-times"></i> Irrigation planning</li>
+                        <li><i class="fas fa-times"></i> Farm analytics</li>
+                    </ul>
+                    <a href="/contact" class="btn secondary">Get Started</a>
+                </div>
+                
+                <div class="plan-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Pro Farmer</h3>
+                    <div class="price">₹999<span>/month</span></div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> All Basic features</li>
+                        <li><i class="fas fa-check"></i> Advanced weather alerts</li>
+                        <li><i class="fas fa-check"></i> Daily market updates</li>
+                        <li><i class="fas fa-check"></i> Pest management</li>
+                        <li><i class="fas fa-check"></i> Irrigation planning</li>
+                        <li><i class="fas fa-times"></i> Farm analytics</li>
+                    </ul>
+                    <a href="/contact" class="btn primary">Get Started</a>
+                </div>
+                
+                <div class="plan-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">₹1999<span>/month</span></div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> All Pro Farmer features</li>
+                        <li><i class="fas fa-check"></i> Farm analytics dashboard</li>
+                        <li><i class="fas fa-check"></i> Priority support</li>
+                        <li><i class="fas fa-check"></i> Custom reports</li>
+                        <li><i class="fas fa-check"></i> Farm visit consultation</li>
+                        <li><i class="fas fa-check"></i> API access</li>
+                    </ul>
+                    <a href="/contact" class="btn secondary">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service FAQs -->
+    <section class="faqs">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How often is the market price data updated?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Our market price data is updated daily from over 200 wholesale markets across India. During peak harvest seasons, we provide twice-daily updates for key commodities.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I get services for multiple crops?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, all our plans support multiple crops. The Basic plan covers up to 3 crops, Pro Farmer up to 6 crops, and the Enterprise plan has no crop limit.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How accurate are your weather predictions?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Our weather service has an accuracy rate of 92% for 24-hour forecasts and 85% for 3-day forecasts. We source data from multiple meteorological agencies and apply agricultural-specific algorithms.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Do you offer refunds if I'm not satisfied?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We offer a 30-day money-back guarantee for all new subscriptions. If you're not satisfied with our services in the first month, we'll refund your payment in full.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I change my plan later?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, you can upgrade or downgrade your plan at any time. Any prorated differences will be applied to your next billing cycle.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="service-cta">
+        <div class="container">
+            <h2>Ready to Transform Your Farming?</h2>
+            <p>Join thousands of farmers who are increasing their yields and profits with Agro Kisan</p>
+            <div class="cta-buttons">
+                <a href="/contact" class="btn primary">Get Started Today</a>
+                <a href="/contact" class="btn secondary">Contact Our Experts</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Agro Kisan</h3>
+                    <p>Helping farmers with technology-driven agricultural solutions since 2020.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Features</h3>
+                    <ul>
+                        <li><a href="/crops">Crop Information</a></li>
+                        <li><a href="/market">Market Prices</a></li>
+                        <li><a href="/weather">Weather</a></li>
+                        <li><a href="#">Farming Tips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Farm Street, Meerut City, IN 250002</p>
+                    <p><i class="fas fa-phone"></i> +91 98XXXXXXXX</p>
+                    <p><i class="fas fa-envelope"></i> info@agrokisan.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Agro Kisan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+document.querySelector('.mobile-menu').addEventListener('click', function() {
+    document.querySelector('nav').classList.toggle('active');
+});
+
+// FAQ Accordion
+const faqQuestions = document.querySelectorAll('.faq-question');
+
+faqQuestions.forEach(question => {
+    question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        const isActive = question.classList.contains('active');
+        
+        // Close all other FAQs
+        faqQuestions.forEach(q => {
+            q.classList.remove('active');
+            q.nextElementSibling.classList.remove('active');
+        });
+        
+        // Toggle current FAQ if it wasn't active
+        if (!isActive) {
+            question.classList.add('active');
+            answer.classList.add('active');
+        }
+    });
+});
+
+// Smooth scrolling for service links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+            
+            // Update URL without page reload
+            history.pushState(null, null, targetId);
+        }
+    });
+});
+
+// Highlight current service in navigation when scrolling
+const serviceSections = document.querySelectorAll('.detailed-service');
+const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+window.addEventListener('scroll', () => {
+    let current = '';
+    
+    serviceSections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (pageYOffset >= sectionTop - 150) {
+            current = '#' + section.getAttribute('id');
+        }
+    });
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === current) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// Initialize first FAQ as open if needed
+// document.querySelector('.faq-question').click();
+    </script>
+    <!-- <script src="/js/script.js"></script>
+    <script src="/js/services.js"></script> -->
+</body>
+</html>
